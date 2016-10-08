@@ -10,7 +10,7 @@ var logger = require('morgan');
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } }; 
 
-mongoose.connect("mongodb://localhost/cloudstorage", options);
+mongoose.connect("mongodb://heroku_2ncwwm12:t0gvme1nikta5v5lfju8tarhc7@ds053136.mlab.com:53136/heroku_2ncwwm12", options);
 var conn = mongoose.connection;
 var gfs;
 var Grid = require("gridfs-stream");
