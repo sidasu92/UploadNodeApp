@@ -10,7 +10,7 @@ var logger = require('morgan');
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } }; 
 
-mongoose.connect("mongodb://heroku_2ncwwm12:t0gvme1nikta5v5lfju8tarhc7@ds053136.mlab.com:53136/heroku_2ncwwm12", options);
+mongoose.connect("mongodb://narutoSid:naruto16@heroku_96kdsxqg:qo1r4rau44l39ejp8fqibg06f@ds053196.mlab.com:53196/heroku_96kdsxqg", options);
 var conn = mongoose.connection;
 var gfs;
 var Grid = require("gridfs-stream");
