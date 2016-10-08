@@ -5,6 +5,10 @@
   "scripts": {
     "start": "node index.js"
   },
+  "engines": {
+    "node": "5.0.0",
+    "npm": "3.3.6"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
