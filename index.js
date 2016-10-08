@@ -10,7 +10,7 @@ var logger = require('morgan');
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } }; 
 
-mongoose.connect(", options);
+mongoose.connect("//insert the mLab path", options);
 var conn = mongoose.connection;
 var gfs;
 var Grid = require("gridfs-stream");
