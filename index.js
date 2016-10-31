@@ -16,8 +16,8 @@ var LocalStrategy = require('passport-local').Strategy;
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } }; 
 
-// mongoose.connect("mongodb://heroku_96kdsxqg:qo1r4rau44l39ejp8fqibg06f@ds053196.mlab.com:53196/heroku_96kdsxqg", options);
-mongoose.connect("mongodb://localhost/cloudstorage", options);
+mongoose.connect("mongodb://heroku_96kdsxqg:qo1r4rau44l39ejp8fqibg06f@ds053196.mlab.com:53196/heroku_96kdsxqg", options);
+//mongoose.connect("mongodb://localhost/cloudstorage", options);
 var conn = mongoose.connection;
 var gfs;
 var Grid = require("gridfs-stream");
