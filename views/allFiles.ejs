@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="mui-container">
+    <h1 style="margin-left: 35px;">My Files</h1>
+    <form>
+      <table class="table table-inverse" id="jsonTable">
+
+      </table>
+
+    </form>
+    <button class="mui-btn mui-btn--raised mui-btn--primary" onclick="window.location='/';">
+      Go back
+    </button>
+
+  </div>
+</body>
+<script type="text/javascript">
+  $(document).ready(function(){
+    console.log("get set go : ");
+    var data = <%- JSON.stringify(outputfiles) %>;
+    console.log(data);
+    getJSON(data);
+  });
+  //Code for creating table from JSON taken from
+  //http://www.dotnetpickles.com/2014/04/json-to-html-table.html
+  function addAllColumnHeaders(myList ) {
+      var columnSet = [];
+      var headerTr$ = $('<tr/>');
+
+      for (var i = 0; i < myList.length; i++) {
+          var rowHash = myList[i];
+          for (var key in rowHash) {
+              if ($.inArray(key, columnSet) == -1) {
+                  columnSet.push(key);
+                  headerTr$.append($('<th/>').html(key));
+              }
+          }
+      }
+      $("#jsonTable").append(headerTr$);
+
+      return columnSet;
+    } 
+
+    function getJSON(data) {
+      var columns = addAllColumnHeaders(data);
+
+      for (var i = 0; i < data.length; i++) {
+          var row$ = $('<tr/>');
+          for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+              var cellValue = data[i][columns[colIndex]];
+
+              if (cellValue == null) { cellValue = ""; }
+
+              row$.append($('<td/>').html(cellValue));
+          }
+          $("#jsonTable").append(row$);
+      }
+    }
+
+    var arrName = [];
+  $(function() {
+
+    //code to covert the Id Field to Delete link
+    arrName = [];
+    $('#jsonTable tr td:nth-child(2)').each(function() {
+      arrName.push($(this).text());
+    });
+
+    $('#jsonTable tr td:first-child').each(function(index) {
+      var name = $(this).text();
+      $(this).replaceWith('<td><a class="btn btn-danger" role="button" href=/delete/' + arrName[index] + '>' + name + '</a></td>');
+    });
+    $("tr").each(function() {
+      $(this).find("th:eq(7)").remove();
+      $(this).find("th:eq(7)").remove();
+      $(this).find("td:eq(7)").remove();
+      $(this).find("td:eq(7)").remove();
+    });
+
+    $('#jsonTable tr td:nth-child(7)').each(function(index) {
+      var name = $(this).text();
+      $(this).replaceWith('<input style="margin-top: 10px;" class="myInput' +index+ '" type="text" name="username"><a href="#" onclick="shareLink('+index+')">Share</a>');
+    });
+
+    
+
+    // $("#shareLink").click(function() {
+    //   window.location = $(this).attr('href') + '?userName=' + $('.myInput'+).val();
+    //   return false;
+    // });
+  })
+
+  function shareLink(indexValue) {
+      debugger
+      // alert(indexValue)
+      var inputName = $('.myInput'+indexValue).val();
+      var url = '/share/' + arrName[indexValue] + '?userName=' + inputName;
+      console.log(url);
+      window.location = url;
+      return false;
+    }
+</script>
+</html>

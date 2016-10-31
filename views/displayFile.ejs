@@ -2,37 +2,48 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> 
+  
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <div class="mui-container">
-    <h1>Here is file descriptions</h1>
-    <table class="mui-table mui-table--bordered">
-      <thead>
-        <tr>
-          <th>New Filename</th>
-          <th>Size</th>
-          <th>MD5 checksum of file</th>
-          <th>Upload at</th>
-          <th><i class="fa fa-download"></i>Download</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= file.filename %></td>
-          <td><%= file.length %></td>
-          <td><%= file.md5 %></td>
-          <td><%= file.uploadDate %></td>
-          <td><a href="/files/<%= file.filename %>">Download me!!</a></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <button class="mui-btn mui-btn--raised mui-btn--primary" onclick="window.location='/';">
-      Go back
+    <h1 style="margin-left: 35px;">File :: <%= file.filename %></h1>
+    <form>
+      <table class="table table-striped table-inverse">
+        <thead class="thead-inverse">
+          <tr>
+            <th></th>
+            <th>Size</th>
+            <th>MD5 checksum of file</th>
+            <th>Upload at</th>
+            <th><i class="fa fa-download"></i>Download</th>
+            <th>Share This file with: </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td><%= file.length %></td>
+              <td><%= file.md5 %></td>
+              <td><%= file.uploadDate %></td>
+              <td><a href="/files/<%= file.filename %>">Download me!!</a></td>
+              <td><input id="myInput" type="text" name="username"><a href="/share/<%= file.filename %>" id="shareLink">Share</a></td>
+            </tr>
+        </tbody>
+      </table>
+    </form>
+    <button class="btn btn-info" style="margin-left: 35px;" onclick="window.location='/logout';">
+      Logout
     </button>
-
-  </div>
 </body>
-
+<script type="text/javascript">
+  $(function() {
+    $("#shareLink").click(function() {
+      window.location = $(this).attr('href') + '?userName=' + $('#myInput').val();
+      return false;
+    });
+  })
+</script>
 </html>
