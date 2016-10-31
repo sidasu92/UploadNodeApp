@@ -11,18 +11,22 @@
       <h2>Ready to Upload files?</h2>
       <form action="/" method="POST" enctype="multipart/form-data">
         <div class="form-group">
-		    <input type="file" name="myFile" class="file" style="display:none;">
-		    <div class="input-group">
-		      <input type="text" class="form-control input-lg" disabled>
-		      <span class="input-group-btn">
-		        <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
-		      </span>
-		    </div>
-		</div>
+    		    <input type="file" name="myFile" class="file" style="display:none;">
+    		    <div class="input-group">
+    		      <input type="text" class="form-control input-lg" disabled>
+    		      <span class="input-group-btn">
+    		        <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+    		      </span>
+    		    </div>
+    		</div>
         <div class="form-group">
         	<button type="submit" class="btn btn-primary btn-lg btn-block">Upload it!</button>
         </div>
-
+        <div class="form-group">
+          <button class="btn btn-info" onclick="window.location='/allFiles';">
+            Take me to All Files
+          </button>
+        </div>
       </form>
     </div>
   </body>
