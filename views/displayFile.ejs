@@ -28,7 +28,7 @@
               <td><%= file.length %></td>
               <td><%= file.md5 %></td>
               <td><%= file.uploadDate %></td>
-              <td><a href="/files/<%= file.filename %>">Download me!!</a></td>
+              <td><a href="/files/<%= file.filename %>" target="_blank">Download me!!</a></td>
               <td><input id="myInput" type="text" name="username"><a href="/share/<%= file.filename %>" id="shareLink">Share</a></td>
             </tr>
         </tbody>
