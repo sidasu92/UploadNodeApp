@@ -1,5 +1,5 @@
 # UploadeNodeApp
-First Node Application
+File Storage Node Application
 
 ## Synopsis 
 This is a RESTful NodeJS application used to upload files which get stored in the sharded clusters of the MongoDB along with file sharing mechanism addressing all the 5 features of cloud computing.
@@ -35,6 +35,7 @@ To address the below problems, we had come up with this implementation
 8. Run mongo command line interface in a separate terminal by running "mongo" command 
 9. In a separate terminal run "node index.js" 
 10. On a web browser, hit localhost:3032
+11. Alternatively, the node application could be accessed from Heroku app.
 
 ## API Reference
 
