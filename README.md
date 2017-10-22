@@ -1,5 +1,5 @@
 # UploadeNodeApp
-First Node Application
+File Storage Node Application
 
 ## Synopsis 
 This is a RESTful NodeJS application used to upload files which get stored in the sharded clusters of the MongoDB along with file sharing mechanism addressing all the 5 features of cloud computing.
